@@ -6,52 +6,66 @@
     <title>Kalkulator</title>
 </head>
 <body>
-    <div>
-        <span>Prosjek 1. razreda</span>
-        <input type="number" id="prvi">
-    </div>
-    <div>
-        <span>Prosjek 2. razreda</span>
-        <input type="number" id="drugi">
-    </div>
-    <div>
-        <span>Prosjek 3. razreda</span>
-        <input type="number" id="treci">
-    </div>
-    <div>
-        <span>Prosjek 4. razreda</span>
-        <input type="number" id="cetvrti">
-    </div>
-    <div>
-        <span>Zaokružena ocjena mature iz hrvatskog:</span>
-        <input type="number" id="hrvatski">
-    </div>
-    <div>
-        <span>Zaokružena ocjena mature iz engleskog:</span>
-        <input type="number" id="engleski">
-    </div>
-    <div>
-        <span>Zaokružena ocjena mature iz matematike:</span>
-        <input type="number" id="matematika">
-    </div>
-    <div>
-        <span>Postotak mature iz matematike:</span>
-        <input type="number" id="matematika-posto">
-    </div>
-    <div>
-        <span>Postotak mature iz fizike:</span>
-        <input type="number" id="fizika-posto">
-    </div>
+    <style>
+        * {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        input {
+            width: 5em;
+        }
+    </style>
+
+    <table style="text-align: right;">
+        <tr>
+            <td>Prosjek 1. razreda</td>
+            <td><input type="number" id="prvi"></td>
+        </tr>
+        <tr>
+            <td>Prosjek 2. razreda</td>
+            <td><input type="number" id="drugi"></td>
+        </tr>
+        <tr>
+            <td>Prosjek 3. razreda</td>
+            <td><input type="number" id="treci"></td>
+        </tr>
+        <tr>
+            <td>Prosjek 4. razreda</td>
+            <td><input type="number" id="cetvrti"></td>
+        </tr>
+        <tr>
+            <td>Ocjena mature iz hrvatskog:</td>
+            <td><input type="number" id="hrvatski"></td>
+        </tr>
+        <tr>
+            <td>Ocjena mature iz engleskog:</td>
+            <td><input type="number" id="engleski"></td>
+        </tr>
+        <tr>
+            <td>Ocjena mature iz matematike:</td>
+            <td><input type="number" id="matematika"></td>
+        </tr>
+        <tr>
+            <td>Postotak mature iz matematike:</td>
+            <td><input type="number" id="matematika-posto"></td>
+        </tr>
+        <tr>
+            <td>Postotak mature iz fizike:</td>
+            <td><input type="number" id="fizika-posto"></td>
+        </tr>
+    </table>
+
+    <br>
 
     <div>
-        <button onclick="calculate()">Izračunaj</button>
-    </div>
-
-    <div>
-        <b>Ukupno bodova:</b> <span id="total">pimpek</span>
+        <b>Ukupno bodova:</b> <span id="total">?</span>
     </div>
 
     <script>
+        for (const element of document.getElementsByTagName('input')) {
+            element.addEventListener('change', () => calculate());
+        }
+
         function calculate() {
             const prvi = parseFloat(document.getElementById('prvi').value);
             const drugi = parseFloat(document.getElementById('drugi').value);
