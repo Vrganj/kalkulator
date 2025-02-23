@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <div>
+        <span>Prosjek 1. razreda</span>
+        <input type="number" id="prvi">
+    </div>
+    <div>
+        <span>Prosjek 2. razreda</span>
+        <input type="number" id="drugi">
+    </div>
+    <div>
+        <span>Prosjek 3. razreda</span>
+        <input type="number" id="treci">
+    </div>
+    <div>
+        <span>Prosjek 4. razreda</span>
+        <input type="number" id="cetvrti">
+    </div>
+    <div>
+        <span>Zaokružena ocjena mature iz hrvatskog:</span>
+        <input type="number" id="hrvatski">
+    </div>
+    <div>
+        <span>Zaokružena ocjena mature iz engleskog:</span>
+        <input type="number" id="engleski">
+    </div>
+    <div>
+        <span>Zaokružena ocjena mature iz matematike:</span>
+        <input type="number" id="matematika">
+    </div>
+    <div>
+        <span>Postotak mature iz matematike:</span>
+        <input type="number" id="matematika-posto">
+    </div>
+    <div>
+        <span>Postotak mature iz fizike:</span>
+        <input type="number" id="fizika-posto">
+    </div>
+
+    <div>
+        <button onclick="calculate()">Izračunaj</button>
+    </div>
+
+    <div>
+        <b>Ukupno bodova:</b> <span id="total">pimpek</span>
+    </div>
+
+    <script>
+        function calculate() {
+            const prvi = parseFloat(document.getElementById('prvi').value);
+            const drugi = parseFloat(document.getElementById('drugi').value);
+            const treci = parseFloat(document.getElementById('treci').value);
+            const cetvrti = parseFloat(document.getElementById('cetvrti').value);
+            const hrvatski = parseFloat(document.getElementById('hrvatski').value);
+            const engleski = parseFloat(document.getElementById('engleski').value);
+            const matematika = parseFloat(document.getElementById('matematika').value);
+            const matematikaPosto = parseFloat(document.getElementById('matematika-posto').value);
+            const fizikaPosto = parseFloat(document.getElementById('fizika-posto').value);
+            document.getElementById('total').innerText = (prvi+drugi+treci+cetvrti + (hrvatski+engleski+matematika)/3)/5*80 + matematikaPosto/100*360 + fizikaPosto/100*240;
+        }
+    </script>
+</body>
+</html>
